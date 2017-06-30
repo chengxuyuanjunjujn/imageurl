@@ -145,7 +145,7 @@
 
 
 ### Document.java中的方法
-* **public static void documentIndex(String indexFile, String type)**,方法，用于构建指定文件下的索引，
+* **public static void documentIndex(String indexFile, String type)**,，用于构建指定文件下的索引，
 	* indexFile为文件路径;
 	* type指定哪种类型文件，""为默认为所有文件 
 	* 调用了本身提供的public方法 **private static void indexFilesSolrCell(String fileName, String solrId, String docType)**，用于对于文件构建列表索引；
@@ -170,7 +170,7 @@
 
 </code>        
 
-* **protected static boolean needUpdate(String url)**,方法，用于判定一个文件目录是否更新，从而确定是否对索引进行更新
+* **protected static boolean needUpdate(String url)**,用于判定一个文件目录是否更新，从而确定是否对索引进行更新
 	* url为文件路径
 
 实际调用示例：
@@ -182,12 +182,12 @@
  }
 ``` 
 
-* **public static void indexFilesSolrCell(String fileName, String solrId, String docType)**,方法，用于为pdf类型文件构建索引
+* **public static void indexFilesSolrCell(String fileName, String solrId, String docType)**,用于为pdf类型文件构建索引
 	* filename为指定文件名；
 	* solrId为文件绝对路径；
 	* docType为文件类型；
 
-* **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**,方法，用于为txt, md, csv类型文件构建索引
+* **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**,用于为txt, md, csv类型文件构建索引
 	* filename为指定文件名；
 	* solrId为文件绝对路径；
 	* docType为文件类型；
@@ -198,7 +198,7 @@
 
 
 ### FileCharsetDetector.java中的方法
-* **public String guessFileEncoding(File file)** 用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
+* **public String guessFileEncoding(File file)**,用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
 	* 调用了私有化方法 **private String guessFileEncoding(File file, nsDetector det)**方法，进行检查编码，这个方法是透明的，不需要开发者了解。
 	* 返回string为文件编码，eg：UTF-8,GBK,GB2312形式(不确定的时候，返回可能的字符编码序列)；若无，则返回null；
 
@@ -223,7 +223,7 @@ try{
 ```
 
 ### FileUpload.java中的方法
-* **public static String upload(MultipartFile file, String filePath)**方法，用于文件上传，	
+* **public static String upload(MultipartFile file, String filePath)**,用于文件上传
 	* file为前端向后传输文件，前端标签为 `<input type="file"></>`；
 	* filePath为目标路径；
 
