@@ -187,19 +187,19 @@
 	* solrId为文件绝对路径；
 	* docType为文件类型；
 
-* **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**,用于为txt, md, csv类型文件构建索引
+* **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**，用于为txt, md, csv类型文件构建索引
 	* filename为指定文件名；
 	* solrId为文件绝对路径；
 	* docType为文件类型；
 
-* **public static String getModifiedTime(String url)**,用于获取文件的最后更新时间
+* **public static String getModifiedTime(String url)**，用于获取文件的最后更新时间
 	* url为文件的绝对路径；
 	* 返回的string格式为："yyyy-MM-dd HH:mm:ss"，即标准时间格式；
 
 
 ### FileCharsetDetector.java中的方法
 * **public String guessFileEncoding(File file)**，用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
-	* 调用了私有化方法 **private String guessFileEncoding(File file, nsDetector det)**方法，进行检查编码，这个方法是透明的，不需要开发者了解。
+	* 调用了私有化方法 **private String guessFileEncoding(File file, nsDetector det)方法**，进行检查编码，这个方法是透明的，不需要开发者了解。
 	* 返回string为文件编码，eg：UTF-8,GBK,GB2312形式(不确定的时候，返回可能的字符编码序列)；若无，则返回null；
 
 实际代码调用：
