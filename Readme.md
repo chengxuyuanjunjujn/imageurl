@@ -1,7 +1,7 @@
-#使用说明
+# 使用说明
 
 
-##1.搭建solr环境
+## 1.搭建solr环境
 &ensp;&ensp; **利用提供的solr4.9压缩包，搭建solr运行环境，从而为程序提供运行环境。**
 
 * `Solr`服务正常启动
@@ -139,11 +139,11 @@
 
 
 
-##3.组件提供jar包中可用的方法函数
+## 3.组件提供jar包中可用的方法函数
 &ensp;&ensp;&ensp;&ensp; **将需要使用搜索功能组件的项目导入提供的所有jar包，从而在项目中实现对于数据库文件以及文档建立索引，并进行搜索和结果展示的操作，而不需要使用图形界面。**
 
 
-###Document.java中的方法
+### Document.java中的方法
 *   **public static void documentIndex(String indexFile, String type)**方法，用于构建指定文件下的索引，
 	* indexFile为文件路径;
 	* type指定哪种类型文件，""为默认为所有文件 
@@ -196,7 +196,7 @@
 	* 返回的string格式为："yyyy-MM-dd HH:mm:ss"，即标准时间格式；
 
 
-###FileCharsetDetector.java中的方法
+### FileCharsetDetector.java中的方法
 * **public String guessFileEncoding(File file)**用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
 	* 调用了私有化方法 **private String guessFileEncoding(File file, nsDetector det)**方法，进行检查编码，这个方法是透明的，不需要开发者了解。
 	* 返回string为文件编码，eg：UTF-8,GBK,GB2312形式(不确定的时候，返回可能的字符编码序列)；若无，则返回null；
@@ -221,7 +221,7 @@ try{
             }
 ```
 
-###FileUpload.java中的方法
+### FileUpload.java中的方法
 * **public static String upload(MultipartFile file, String filePath)**方法，用于文件上传，	
 	* file为前端向后传输文件，前端标签为 `<input type="file"></>`；
 	* filePath为目标路径；
@@ -269,7 +269,7 @@ try{
     }
 ```
 
-###FileVisitor.java中的方法
+### FileVisitor.java中的方法
 
 * **public static void getDoc(String args, String doctype, boolean update)**方法，用于遍历文件目录并构建索引，或更新已建立索引并进行修改过的文件
 	* args为目录地址；
@@ -312,7 +312,7 @@ try{
 
 ```
 
-###ImportExportHelper.java中的方法
+### ImportExportHelper.java中的方法
 * **public static void TNBSolrDataSourcesConfigParser()**方法，用于将配置文件中的内容导入并建立索引，调用 **public static void importData(@NotNull Document xmlDoc)**方法。
 
 使用示例：    
@@ -362,7 +362,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 ```
 
 
-###loadFile.java中的方法
+### loadFile.java中的方法
 * **public static String loadFileService(String url)**方法，该方法用于在点击搜索结果展示框的时候将整个文件作为字节流传入前端使用
 	* 如果文件建立索引与文件当前状态不一致，会进行更新，从而保证文件内容准确一致，如果文件应景被删除，会将索引删除，从而保持一致性。
 
@@ -376,7 +376,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
     }
 ```
 
-###search.java中的方法：
+### search.java中的方法：
 * **public static HttpSolrServer getServer(String urlString)**方法，与solr服务器建立连接
 	* 方法返回值为HttpSolrServer类型；
 	* 传入的ulrString为本地solr服务器地址，默认情况下为		`http://localhost:8983/solr`        
