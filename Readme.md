@@ -272,7 +272,7 @@ try{
 
 ### FileVisitor.java中的方法
 
-* **public static void getDoc(String args, String doctype, boolean update)**方法，用于遍历文件目录并构建索引，或更新已建立索引并进行修改过的文件
+* **public static void getDoc(String args, String doctype, boolean update)**,用于遍历文件目录并构建索引，或更新已建立索引并进行修改过的文件
 	* args为目录地址；
 	* doctype为构建索引的文件类型，默认为所有类型文件；
 	* 是否开启更新，如果为true会对目录地址进行更新而不是从新构建；
@@ -314,7 +314,7 @@ try{
 ```
 
 ### ImportExportHelper.java中的方法
-* **public static void TNBSolrDataSourcesConfigParser()**方法，用于将配置文件中的内容导入并建立索引，调用 **public static void importData(@NotNull Document xmlDoc)**方法。
+* **public static void TNBSolrDataSourcesConfigParser()**,用于将配置文件中的内容导入并建立索引，调用 **public static void importData(@NotNull Document xmlDoc)**方法。
 
 使用示例：    
 
@@ -327,7 +327,7 @@ try{
 
 ```
 
-* **public static void importData(@NotNull Document xmlDoc)**方法，调用真正导入配置文件的 **public static void importData(@NotNull Document xmlDoc, boolean fromDatabases, boolean fromDirectory, boolean fromFile)**方法。
+* **public static void importData(@NotNull Document xmlDoc)**,调用真正导入配置文件的 **public static void importData(@NotNull Document xmlDoc, boolean fromDatabases, boolean fromDirectory, boolean fromFile)**方法。
 
 * **public static void importData(@NotNull Document xmlDoc, boolean fromDatabases, boolean fromDirectory, boolean fromFile)**方法
 	* xmlDoc为将要导入的配置文件；
@@ -337,11 +337,11 @@ try{
 
 
 
-* **public static void exportToDatabaseConfig(String url, String user, String password, String table, Object[] objects)**方法，用于将对于某个数据表的内容建立索引保存到配置文件中；
+* **public static void exportToDatabaseConfig(String url, String user, String password, String table, Object[] objects)**,用于将对于某个数据表的内容建立索引保存到配置文件中；
 
-* **public static void exportToDirectoryConfig(String url)**方法，用于将对于目录建立索引保存到配置文件中；
+* **public static void exportToDirectoryConfig(String url)**,用于将对于目录建立索引保存到配置文件中；
 
-* **public static void exportToFileConfig(String url)**方法，用于将某个文件建立索引保存到配置文件中；
+* **public static void exportToFileConfig(String url)**,用于将某个文件建立索引保存到配置文件中；
 
 * 配置文件格式为：
 
@@ -364,7 +364,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 
 ### loadFile.java中的方法
-* **public static String loadFileService(String url)**方法，该方法用于在点击搜索结果展示框的时候将整个文件作为字节流传入前端使用
+* **public static String loadFileService(String url)**,该方法用于在点击搜索结果展示框的时候将整个文件作为字节流传入前端使用
 	* 如果文件建立索引与文件当前状态不一致，会进行更新，从而保证文件内容准确一致，如果文件应景被删除，会将索引删除，从而保持一致性。
 
 实际调用示例：
@@ -378,7 +378,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 ```
 
 ### search.java中的方法：
-* **public static HttpSolrServer getServer(String urlString)**方法，与solr服务器建立连接
+* **public static HttpSolrServer getServer(String urlString)**,与solr服务器建立连接
 	* 方法返回值为HttpSolrServer类型；
 	* 传入的ulrString为本地solr服务器地址，默认情况下为		`http://localhost:8983/solr`        
 
@@ -387,7 +387,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 ```     
 		server = getServer(SOLR_URL);    
 ```    
-* **public static String query_by_page(String type, String query, int start, int row, boolean hightlight)** 方法，用于进行查询
+* **public static String query_by_page(String type, String query, int start, int row, boolean hightlight)**,用于进行查询
 	* type为所要查询的文件类型，默认为全部类型；
 	* query为查询的内容；
 	* start与row为指定查询结果的起始位置以及个数；
@@ -428,7 +428,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
       */
 ```
 
-* **public static String[] autoComplete(String field, String prefix, int min)**方法，用于查询内容的自动补全，方便用户的查询
+* **public static String[] autoComplete(String field, String prefix, int min)**,用于查询内容的自动补全，方便用户的查询
 	* prefix为前缀，即实时的输入内容；
 	* min为最大返回结果数，开发人员自定义，尽量不要太大，即不方便显示，后面的相关性也比较差；
 * public static void buildStructual(String database, String user, String pwd, String table, String[] fieldName, boolean saveConfig)方法，用于对于数据库这种结构性数据建立索引
@@ -479,10 +479,10 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 ```
 
-* **public static void deleteByQuery(String query)**方法，用于删除某些不在需要的索引
+* **public static void deleteByQuery(String query)**,用于删除某些不在需要的索引
 	* query内容为定义删除哪些索引；
-* **public static void deleteById(String id)**方法，用于删除指定索引号的索引，id内容为索引号，使用该方法需要已知需要删除的索引号
-*  **public static void findInDatabase(String user, String pwd, QueryResponse rsp)**方法，用户根据查询结果中的索引集合去原数据库查询完整内容
+* **public static void deleteById(String id)**,用于删除指定索引号的索引，id内容为索引号，使用该方法需要已知需要删除的索引号
+*  **public static void findInDatabase(String user, String pwd, QueryResponse rsp)**,用户根据查询结果中的索引集合去原数据库查询完整内容
 	* user和pwd为数据库的用户名和密码；
 	* rsp为查询后返回的索引集合； 
   
