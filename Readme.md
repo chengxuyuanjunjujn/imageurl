@@ -90,7 +90,8 @@
 
 &ensp;&ensp; **这一部分内容为扩展内容，如果开发者想添加一些新的分词或者功能的时候参考这一部分内容。**
 
-##2.使用图形界面建立文件索引
+## 2.使用图形界面建立文件索引
+
 &ensp;&ensp;将提供的searchengine项目导入到IDEA中，启动运行，在浏览器中访问：`http://localhost:8080/manage`，即可进入到管理者界面，对于文件建立索引。
 
 
@@ -144,7 +145,7 @@
 
 
 ### Document.java中的方法
-*   **public static void documentIndex(String indexFile, String type)**方法，用于构建指定文件下的索引，
+* **public static void documentIndex(String indexFile, String type)**方法，用于构建指定文件下的索引，
 	* indexFile为文件路径;
 	* type指定哪种类型文件，""为默认为所有文件 
 	* 调用了本身提供的public方法 **private static void indexFilesSolrCell(String fileName, String solrId, String docType)**，用于对于文件构建列表索引；
@@ -181,12 +182,12 @@
  }
 ``` 
 
-*  **public static void indexFilesSolrCell(String fileName, String solrId, String docType)**方法，用于为pdf类型文件构建索引
+* **public static void indexFilesSolrCell(String fileName, String solrId, String docType)**方法，用于为pdf类型文件构建索引
 	* filename为指定文件名；
 	* solrId为文件绝对路径；
 	* docType为文件类型；
 
-*  **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**方法，用于为txt, md, csv类型文件构建索引
+* **public static void indexFilesSolrCell2(String fileName, String solrId, String docType)**方法，用于为txt, md, csv类型文件构建索引
 	* filename为指定文件名；
 	* solrId为文件绝对路径；
 	* docType为文件类型；
@@ -197,7 +198,7 @@
 
 
 ### FileCharsetDetector.java中的方法
-* **public String guessFileEncoding(File file)**用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
+* **public String guessFileEncoding(File file)** 用于获取文件编码，其中file为文件类型变量，这个方法在为文件构建索引的时候使用，检查编码从而防止乱码。
 	* 调用了私有化方法 **private String guessFileEncoding(File file, nsDetector det)**方法，进行检查编码，这个方法是透明的，不需要开发者了解。
 	* 返回string为文件编码，eg：UTF-8,GBK,GB2312形式(不确定的时候，返回可能的字符编码序列)；若无，则返回null；
 
