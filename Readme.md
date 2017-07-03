@@ -50,7 +50,7 @@
 
 ```javascript
 
-	<requestHandler name="/dataimport" 	class="org.apache.solr.handler.dataimport.DataImportHandler">
+    <requestHandler name="/dataimport" 		    class="org.apache.solr.handler.dataimport.DataImportHandler">
     <lst name="defaults">
     <str name="config">data-config.xml</str> 
     </lst> 
@@ -64,7 +64,7 @@
 	
     <dataConfig>
 
-	<dataSource type="JdbcDataSource" driver="oracle.jdbc.driver.OracleDriver"  
+    <dataSource type="JdbcDataSource" driver="oracle.jdbc.driver.OracleDriver"  
     url="jdbc:oracle:thin:@60.30.69.61:1521:adc"  
     user="CVDEV2"  
     password="CVDEV2"/>  
@@ -95,9 +95,9 @@
 
 ```javascript
 
-	<fieldType name="text_ik" class="solr.TextField">   
-     <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>   
-	</fieldType>
+    <fieldType name="text_ik" class="solr.TextField">   
+    <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>   
+    </fieldType>
   
 ```
 
