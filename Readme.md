@@ -183,7 +183,7 @@
 
 实际使用示例：  
   
-<code>
+```java
 
     @RequestMapping(value="/import-dir", method=RequestMethod.POST)
     @ResponseBody
@@ -196,8 +196,7 @@
             return "error";
         }
     }
-
-</code>        
+```        
 
 * **protected static boolean needUpdate(String url)**，用于判定一个文件目录是否更新，从而确定是否对索引进行更新
 	* url为文件路径
@@ -258,7 +257,7 @@ try{
 
 实际使用示例(下面为配置文件更新使用代码示例)：  
   
-```
+```java
  public String configupload(@RequestParam("test") MultipartFile file) {
         String prefix = "D:\\NEXT\\searchengine\\configSave\\";
         String returnString = FileUpload.upload(file, prefix);
@@ -374,7 +373,7 @@ try{
 
 * 配置文件格式为：
 
-```
+```javascript
 数据库：
 
 <database password="CVDEV2" url="jdbc:oracle:thin:@60.30.69.61:1521:adc" user="CVDEV2">
