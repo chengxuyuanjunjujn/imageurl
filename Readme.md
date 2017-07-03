@@ -326,7 +326,7 @@ try{
 对目录进行更新时使用：
 
 ```java
-	@RequestMapping(value="/update-dir", method=RequestMethod.POST)
+    @RequestMapping(value="/update-dir", method=RequestMethod.POST)
     @ResponseBody
     public String updateDir(String dir, String type) {
         try {
