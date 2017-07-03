@@ -347,7 +347,7 @@ try{
 使用示例：    
 
 ```java
- @RequestMapping(value = "/fullimporttest",method = RequestMethod.GET)
+ 	@RequestMapping(value = "/fullimporttest",method = RequestMethod.GET)
     @ResponseBody
     public void fullImport() throws Exception {
         ImportExportHelper.TNBSolrDataSourcesConfigParser();
@@ -398,7 +398,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 实际调用示例：
 
 ```java
- @RequestMapping("/loadFile")
+ 	@RequestMapping("/loadFile")
     @ResponseBody
     public String loadFile(String url){
         return loadFile.loadFileService(url);
