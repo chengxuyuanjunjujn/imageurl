@@ -172,6 +172,8 @@
 ## 5.组件提供jar包中可用的方法函数
 &ensp;&ensp;&ensp;&ensp; **将SearchEngine\target下的searchengine-1.0.jar包，从而在项目中使用接口方法实现对于数据库文件以及文档建立索引，并进行搜索和结果展示的操作。**
 
+&ensp;&ensp;&ensp;&ensp; **在引入searchengine-1.0.jar包的项目中另外需要引入ojdbc14.jar，在数据库连接时候使用到该jar包**
+
 &ensp;&ensp;&ensp;&ensp; **对于下面这些接口方法的具体实现代码可以将整个项目导入IDEA中，即可看到源码**
 
 ### Document类中的方法
