@@ -233,7 +233,7 @@
 
 实际代码调用：
 
-```
+```java
 try{
             String encoding;
             File file=new File(solrId);
@@ -279,7 +279,7 @@ try{
 
 下面为上传单个文件更新使用示例：
 	
-```
+```java
     @RequestMapping(value="/upload-file", method=RequestMethod.POST)
     @ResponseBody
     public String fileupload(@RequestParam("file") MultipartFile file) {
@@ -310,7 +310,7 @@ try{
 
 对目录首次建立时使用：
 
-```
+```java
 	@RequestMapping(value="/import-dir", method=RequestMethod.POST)
     @ResponseBody
     public String importDir(String dir, String type) {
@@ -326,7 +326,7 @@ try{
 
 对目录进行更新时使用：
 
-```
+```java
 	@RequestMapping(value="/update-dir", method=RequestMethod.POST)
     @ResponseBody
     public String updateDir(String dir, String type) {
@@ -347,7 +347,7 @@ try{
 
 使用示例：    
 
-```
+```java
  @RequestMapping(value = "/fullimporttest",method = RequestMethod.GET)
     @ResponseBody
     public void fullImport() throws Exception {
@@ -398,7 +398,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 实际调用示例：
 
-```
+```java
  @RequestMapping("/loadFile")
     @ResponseBody
     public String loadFile(String url){
@@ -413,7 +413,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 实际调用代码：  
 
-```     
+```java
 		server = getServer(SOLR_URL);    
 ```    
 * **public static String query_by_page(String type, String query, int start, int row, boolean hightlight)**，用于进行查询
@@ -424,7 +424,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
   
 在实际调用代码示例：    
 
-```
+```java
 	@ResponseBody   
     public String search(String keyWords, int startIndex, int step){  
         String returnString = query_by_page("md", keyWords, startIndex, step, true);  
@@ -435,7 +435,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 ```
 返回值类型为json串，需要符合下面格式：
 
-```
+```java
   @Return String the json string formatted as
      {
       "results":[
@@ -469,7 +469,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 实际调用代码示例：  
    
-```
+```java
  public String createIndex(String database, String table, String fieldName){
         String [] fieldArr = fieldName.split(";");
         if(fieldArr == null)
@@ -496,8 +496,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 
 调用代码示例：
 
-```
- */
+```java
     private static void importFromDatabasesImpl(String url, String user, String password, String table, Object[] objects) throws Exception {
         String [] strings = new String[objects.length];
         for(int i=0;i<strings.length;i++){
@@ -517,7 +516,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
   
 实际使用示例：  
   
-```
+```java
  try{
             QueryResponse rsp = solrServer.query(solrQuery);
             SolrDocumentList docs = rsp.getResults();
