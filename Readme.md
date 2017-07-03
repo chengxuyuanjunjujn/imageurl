@@ -40,29 +40,29 @@
     * 配置solrconfig.xml，路径为`solr-4.9.0\example\solr\collection1\conf`,在第87~91行加入下面内容,从而导入引用Oracle的驱动包和DataImport所需的包
 
 ```javascript  
- 
-	  <lib dir="../../../contrib/dataimporthandler/lib" regex=".*\.jar" />
-      <lib dir="../../../dist/" regex="solr-dataimporthandler-4.9.0.jar" />
-      <lib dir="../../../dist/" regex="solr-dataimporthandler-extras-4.9.0.jar" />
+    <lib dir="../../../contrib/dataimporthandler/lib" regex=".*\.jar" />
+    <lib dir="../../../dist/" regex="solr-dataimporthandler-4.9.0.jar" />
+    <lib dir="../../../dist/" regex="solr-dataimporthandler-extras-4.9.0.jar" />
 
 ```
 
    * 在1210行加入下面内容，保证solr读取访问连接数据的文件data-config.xml
 
-<code>
+```javascript
 
 	<requestHandler name="/dataimport" 	class="org.apache.solr.handler.dataimport.DataImportHandler">
     <lst name="defaults">
     <str name="config">data-config.xml</str> 
     </lst> 
    </requestHandler>
-</code>
+
+```
 
    * 在solrconfig.xml同文件夹下创建data-config.xml文件，其中dataSource中为数据库连	接的内容，entity中的内容为所要查询的表以及建立索引的列，field中column的值为数据库中列名，name为要映射到solr中的建立索引的列名需要保证两者数据类型相同， **需要注意这里使用到的name字段名称必须在schema.xml中已经定义，同时必须保证name中有一列为id**，示例内容：
 
-<code>
+```javascript
 	
-	<dataConfig>
+    <dataConfig>
 
 	<dataSource type="JdbcDataSource" driver="oracle.jdbc.driver.OracleDriver"  
     url="jdbc:oracle:thin:@60.30.69.61:1521:adc"  
@@ -85,7 +85,7 @@
 
 	</dataConfig>
 
-</code>
+```
 
 * 分词器
 	* 下载IK Analyzer 2012FF_hf1，需要自行下载
@@ -93,13 +93,14 @@
 	* 把IKAnalyzer.cfg.xml、stopword.dic拷贝到需要使用分词器的core的conf下面，和core的schema.xml文件一个目录,路径为：`solr-4.9.0\example\solr\collection1\conf`
 	* core的schema.xml，在<types></types>配置项间加一段如下配置：
 
-<code>
+```javascript
 
 	<fieldType name="text_ik" class="solr.TextField">   
      <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>   
 	</fieldType>
   
-</code>
+```
+
 我们就多了一种text_ik的field类型了，该类型使用的分词器就是ik-analyzer。
 
 * 重启solr服务，访问`http://localhost:8983/solr/#/collection1/analysis`，即可对新添加的text_ik分词效果测试。
