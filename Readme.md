@@ -413,7 +413,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 实际调用代码：  
 
 ```java
-		server = getServer(SOLR_URL);    
+    server = getServer(SOLR_URL);    
 ```    
 * **public static String query_by_page(String type, String query, int start, int row, boolean hightlight)**，用于进行查询
 	* type为所要查询的文件类型，默认为全部类型；
