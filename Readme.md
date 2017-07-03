@@ -310,7 +310,7 @@ try{
 对目录首次建立时使用：
 
 ```java
-	@RequestMapping(value="/import-dir", method=RequestMethod.POST)
+    @RequestMapping(value="/import-dir", method=RequestMethod.POST)
     @ResponseBody
     public String importDir(String dir, String type) {
         try {
@@ -347,7 +347,7 @@ try{
 使用示例：    
 
 ```java
- 	@RequestMapping(value = "/fullimporttest",method = RequestMethod.GET)
+    @RequestMapping(value = "/fullimporttest",method = RequestMethod.GET)
     @ResponseBody
     public void fullImport() throws Exception {
         ImportExportHelper.TNBSolrDataSourcesConfigParser();
@@ -398,7 +398,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 实际调用示例：
 
 ```java
- 	@RequestMapping("/loadFile")
+    @RequestMapping("/loadFile")
     @ResponseBody
     public String loadFile(String url){
         return loadFile.loadFileService(url);
@@ -424,7 +424,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
 在实际调用代码示例：    
 
 ```java
-	@ResponseBody   
+    @ResponseBody   
     public String search(String keyWords, int startIndex, int step){  
         String returnString = query_by_page("md", keyWords, startIndex, step, true);  
         return returnString;    
