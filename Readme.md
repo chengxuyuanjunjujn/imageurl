@@ -50,7 +50,7 @@
 
 ```javascript
 
-    <requestHandler name="/dataimport" 		    class="org.apache.solr.handler.dataimport.DataImportHandler">
+    <requestHandler name="/dataimport"  class="org.apache.solr.handler.dataimport.DataImportHandler">
     <lst name="defaults">
     <str name="config">data-config.xml</str> 
     </lst> 
