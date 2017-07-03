@@ -39,13 +39,13 @@
     * 将压缩包拷贝到solr目录下，路径为`solr-4.9.0\contrib\dataimporthandler\lib`
     * 配置solrconfig.xml，路径为`solr-4.9.0\example\solr\collection1\conf`,在第87~91行加入下面内容,从而导入引用Oracle的驱动包和DataImport所需的包
 
-<code>    
+```javascript  
  
 	  <lib dir="../../../contrib/dataimporthandler/lib" regex=".*\.jar" />
       <lib dir="../../../dist/" regex="solr-dataimporthandler-4.9.0.jar" />
       <lib dir="../../../dist/" regex="solr-dataimporthandler-extras-4.9.0.jar" />
 
-</code>
+```
 
    * 在1210行加入下面内容，保证solr读取访问连接数据的文件data-config.xml
 
