@@ -157,7 +157,8 @@
 ## 4.搜索引擎页面及功能介绍
 
 主界面
-	<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a12.jpg?raw=true" width="400" />
+
+<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a12.jpg?raw=true" width="400" />
 
 
 ## 5.组件提供jar包中可用的方法函数
