@@ -4,7 +4,7 @@
 &ensp;&ensp; **使用git clone 下载完整项目**
 
 * solr4.9的git地址为：`git@60.30.69.73:tnb/solr.git`，http地址为  `http://tnb_lzj@60.30.69.73/tnb/solr.git`
-* 搜索引擎的git地址为：`http://60.30.69.73/tnb/SearchEngine`，http地址为: 	`http://tnb_lzj@60.30.69.73/tnb/SearchEngine.git`
+* 搜索引擎的git地址为：`git@60.30.69.73:tnb/SearchEngine.git`，http地址为: 	`http://tnb_lzj@60.30.69.73/tnb/SearchEngine.git`
 
 
 ## 2.启动项目
@@ -152,11 +152,14 @@
 	* 如果选择某一类型文件，可以在第二栏添上`md`、`csv`、`txt`等文件类型，注意每次只能选择一种文件类型进行建立索引；
 	* 单击`更新`按钮，即可对选择目录建立索引；
 	
-	<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a5.jpg?raw=true" width="400" />
+	<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a11.jpg?raw=true" width="400" />
 
+## 4.搜索引擎页面及功能介绍
 
+主界面：
+	<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a12.jpg?raw=true" width="400" />
 
-## 4.组件提供jar包中可用的方法函数
+## 5.组件提供jar包中可用的方法函数
 &ensp;&ensp;&ensp;&ensp; **将需要使用搜索功能组件的项目导入提供的所有jar包，从而在项目中实现对于数据库文件以及文档建立索引，并进行搜索和结果展示的操作，而不需要使用图形界面。**
 
 
