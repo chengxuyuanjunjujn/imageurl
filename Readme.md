@@ -156,12 +156,20 @@
 
 ## 4.搜索引擎页面及功能介绍
 
-主界面
+**主界面**
 
 <img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a12.jpg?raw=true" width="400" />
 
+**搜索结果展示界面**
 
-## 3.组件提供jar包中可用的方法函数
+<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a13.jpg?raw=true" width="400" />
+
+**选择合适排序方式**
+
+<img src="https://github.com/chengxuyuanjunjujn/imageurl/blob/master/a14.jpg?raw=true" width="400" />
+
+
+## 5.组件提供jar包中可用的方法函数
 &ensp;&ensp;&ensp;&ensp; **将需要使用搜索功能组件的项目导入提供的所有jar包，从而在项目中实现对于数据库文件以及文档建立索引，并进行搜索和结果展示的操作，而不需要使用图形界面。**
 
 
