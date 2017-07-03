@@ -453,7 +453,7 @@ file url="D:\NEXT\searchengine\fileSave\LICENSE.md"/>
       }
      
       the flag is whether it is the end of the index
-      */
+      
 ```
 
 * **public static String[] autoComplete(String field, String prefix, int min)**，用于查询内容的自动补全，方便用户的查询
