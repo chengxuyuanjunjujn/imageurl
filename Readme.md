@@ -204,7 +204,7 @@
 
 实际调用示例：
 
-```
+```java
  if(needUpdate(url)){
 
         indexFilesSolrCell2(fileName, solrId, docType);
