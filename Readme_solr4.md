@@ -3,47 +3,50 @@
 ## 1.下载完整项目
 &ensp;&ensp; **使用git clone 下载完整项目**
 
-* solr5.5的git地址为：`git@60.30.69.73:tnb/solr_5.5.0.git`;
-* 搜索引擎的SearchEngine_on_Solr_5.5.0地址为：`git@60.30.69.73:tnb/SearchEngine_on_Solr_5.5.0.git`;
+* solr4.9的git地址为：`git@60.30.69.73:tnb/solr.git`，http地址为  `http://tnb_lzj@60.30.69.73/tnb/solr.git`
+* 搜索引擎的git地址为：`git@60.30.69.73:tnb/SearchEngine.git`，http地址为: 	`http://tnb_lzj@60.30.69.73/tnb/SearchEngine.git`
 
 
 ## 2.启动项目
-&ensp;&ensp; **利用提供的solr5.5包，搭建solr运行环境，从而为程序提供运行环境。**
+&ensp;&ensp; **利用提供的solr4.9包，搭建solr运行环境，从而为程序提供运行环境。**
 
 * `Solr`服务正常启动
     * 确保本地配置Java环境变量，具体教程可以参考 `http://jingyan.baidu.com/article/f96699bb8b38e0894e3c1bef.html`
-    * 解压缩提供的`solr5.5`包
-    * 进入到cmd模式，进入解压完的solr目录下的bin文件夹下
-    * 使用`solr start`启动solr服务
-    * 在浏览器中访问`localhost:8983/solr`，出现solr界面，说明成功启动；
-	* 若要停止服务，只需要输入：`solr stop -port 8983`;
+    * 解压缩提供的`solr4.9`包
+    * 进入用cmd模式，进入解压完的solr目录下的example文件夹下
+    * 使用`java -jar start.jar`启动solr服务
+    * 在浏览器中访问`localhost:8983\solr`，出现solr界面，说明成功启动。
 
     
-&ensp;&ensp;&ensp;&ensp; **利用下载的SearchEngine_on_Solr_5.5.0包，搭建搜索服务，从而对于特定文件建立索引，同时可以使用提供的demo，进行搜索服务。**
+&ensp;&ensp;&ensp;&ensp; **利用下载的SearchEngine包，搭建搜索服务，从而对于特定文件建立索引，同时可以使用提供的demo，进行搜索服务。**
 
-* `SearchEngine_on_Solr_5.5.0`服务正常启动
+* `SearchEngine`服务正常启动
 	* 进入提供SearchEngine包下的target目录，路径为：`SearchEngine\target`；
 	* 进入cmd模式，进入到上面路径；
 	* 使用`java -jar searchengine-1.0.jar`启动搜索服务；
 	* 在浏览器中访问：`http://localhost:8080/`进入搜索主页；
 	* 在浏览器中访问：`http://localhost:8080/manage`进入管理者界面，对文件构建索引	；
 
-&ensp;&ensp; **关于solr服务器的其他一些配置，这一部分为使用solr本身接口，与项目使用关系不大，为拓展内容。**
-
-* Solr5.5多核MultiCore（实例）配置
-	* 以为数据库建立的Core为例，将solr-5.5.0\example\example-DIH\solr\db复制到		solr-5.5.0\solr-5.5.0\server\solr下；
-	* 重启服务器，发现新的core已经配置完成；
-
+&ensp;&ensp;**关于solr服务器的其他一些配置**
 
 * 自定义字段
-    * 配置managed-schema,位于目录为：`solr-5.5.0\server\solr\collection1\conf`，用	于配置data-config.xml文件中用到的字段类型，可以结尾位置开始，便于以后查看。
+    * 配置schema.xml,位于solrconfig同一目录下，用于配置data-config.xml文件中用到的字段类型，可以在179行开始，便于以后查看。文件的绝对路径为：
+	`solr-4.9.0\example\solr\collection1\conf\schema.xml`
 	* 定义格式为：`<field name="geo_name" type="text_general" indexed="true" stored="true" /> `
 	* 其中name为自定义字段名称，type为字段类型以及索引、存储等设置
-
 * 改写配置文件，连接到数据库（以Oracle为例）
     * 下载Oracle连接的驱动包
-    * 将压缩包拷贝到solr目录下，路径为`solr-5.5.0\server\solr-webapp\webapp\WEB-INF\lib`
-    * 配置solrconfig.xml，路径为`\solr-5.5.0\server\solr\collection1\conf`，加入下面内容，保证solr读取访问连接数据的文件data-config.xml
+    * 将压缩包拷贝到solr目录下，路径为`solr-4.9.0\contrib\dataimporthandler\lib`
+    * 配置solrconfig.xml，路径为`solr-4.9.0\example\solr\collection1\conf`,在第87~91行加入下面内容,从而导入引用Oracle的驱动包和DataImport所需的包
+
+```javascript  
+    <lib dir="../../../contrib/dataimporthandler/lib" regex=".*\.jar" />
+    <lib dir="../../../dist/" regex="solr-dataimporthandler-4.9.0.jar" />
+    <lib dir="../../../dist/" regex="solr-dataimporthandler-extras-4.9.0.jar" />
+
+```
+
+   * 在1210行加入下面内容，保证solr读取访问连接数据的文件data-config.xml
 
 ```javascript
 
@@ -54,14 +57,8 @@
    </requestHandler>
 
 ```
-   * 在solrconfig.xml的87行加入需要使用的包，内容如下：
-	
-```javascript
- <lib dir="../../../dist/" regex="solr-dataimporthandler-5.5.0.jar" />
-  <lib dir="../../../dist/" regex="solr-dataimporthandler-extras-5.5.0.jar" />
-```
 
-   * 在solrconfig.xml同文件夹下创建data-config.xml文件，其中dataSource中为数据库连	接的内容，entity中的内容为所要查询的表以及建立索引的列，field中column的值为数据库中列名，name为要映射到solr中的建立索引的列名需要保证两者数据类型相同， **需要注意这里使用到的name字段名称必须在schema.xml中已经定义，同时必须保证name中有一列为id，对应的是数据表的主键**，示例内容：
+   * 在solrconfig.xml同文件夹下创建data-config.xml文件，其中dataSource中为数据库连	接的内容，entity中的内容为所要查询的表以及建立索引的列，field中column的值为数据库中列名，name为要映射到solr中的建立索引的列名需要保证两者数据类型相同， **需要注意这里使用到的name字段名称必须在schema.xml中已经定义，同时必须保证name中有一列为id**，示例内容：
 
 ```javascript
 	
@@ -91,31 +88,20 @@
 ```
 
 * 分词器
-
-&ensp;&ensp;&ensp;	Jcseg是基于mmseg算法的一个轻量级开源中文分词器，同时集成了关键字提取，关键短语提取，关键句子提取和文章自动摘要等功能，并且提供了最新版本的lucene, solr, elasticsearch的分词接口， Jcseg自带了一个 jcseg.properties文件用于快速配置而得到适合不同场合的分词应用，例如：最大匹配词长，是否开启中文人名识别，是否追加拼音，是否追加同义词等。 
-
-* 配置Jcseg： 
-	* 下载Jcseg，需要自行下载,并进行解压；
-	*  将jcseg.properties，lexicon\，以及\output下的jcseg-core-1.9.5.jar与jcseg-solr-1.9.5.jar，拷贝到solr-5.5.0\server\solr-webapp\webapp\WEB-INF\lib下。
-	*  在solr-5.5.0\server\solr\collection1\conf中加入以下代码：
+	* 下载IK Analyzer 2012FF_hf1，需要自行下载
+	* IKAnalyzer2012FF_u1.jar拷贝到solr服务的solr\WEB-INF\lib下面，路径为：`solr-4.9.0\example\solr-webapp\webapp\WEB-INF\lib`
+	* 把IKAnalyzer.cfg.xml、stopword.dic拷贝到需要使用分词器的core的conf下面，和core的schema.xml文件一个目录,路径为：`solr-4.9.0\example\solr\collection1\conf`
+	* core的schema.xml，在<types></types>配置项间加一段如下配置：
 
 ```javascript
 
-    <!--jcseg分词 -->
-<fieldType name="text_jcseg" class="solr.TextField">
-  <analyzer type="index">
-    <!-简单模式分词: -->
-    <tokenizer class="org.lionsoul.jcseg.solr.JcsegTokenizerFactory" mode="simple"/>
-  </analyzer>
-  <analyzer type="query">
-    <!-- 复杂模式分词: -->
-    <tokenizer class="org.lionsoul.jcseg.solr.JcsegTokenizerFactory" mode="complex"/>
-  </analyzer>
-</fieldType>
-
+    <fieldType name="text_ik" class="solr.TextField">   
+    <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>   
+    </fieldType>
   
 ```
-定义了一个叫作text_jcseg的类型，之后所有被定义为这个类型的字段(Field)，在建立索引和查询的时候都会使用jcseg analyzer进行分词。
+
+我们就多了一种text_ik的field类型了，该类型使用的分词器就是ik-analyzer。
 
 * 重启solr服务，访问`http://localhost:8983/solr/#/collection1/analysis`，即可对新添加的text_ik分词效果测试。
 
